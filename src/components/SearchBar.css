@@ -2,4 +2,9 @@
 
 .custom-search-bar {
     width: 300px;
+    margin-right: 1rem;
+}
+
+.search-bar-container {
+    display: flex;
 }

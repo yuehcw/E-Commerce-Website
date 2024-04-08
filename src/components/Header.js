@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Badge, Layout, Menu, Drawer } from "antd";
 import {
   HomeOutlined,
   ShoppingCartOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useSearch } from "../context/SearchContext";
 import { fetchProducts } from "../services/productService";
+import { CategoryContext } from "../context/CategoryContext";
 import SearchBar from "./SearchBar";
 import "./Header.css";
 
@@ -16,7 +17,7 @@ const { Header } = Layout;
 
 const AppHeader = () => {
   const [products, setProducts] = useState([]);
-  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeMenu, setActiveMenu] = useContext(CategoryContext);
   const [activeCategory, setActiveCategory] = useState(null);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const { resetSearchTerm } = useSearch();
@@ -143,9 +144,9 @@ const AppHeader = () => {
             />
           </Menu.Item>
         </Menu>
-        <div className="search-container">
+        <Menu theme="dark" mode="horizontal" className="menu-middle">
           <SearchBar products={products} />
-        </div>
+        </Menu>
         <Menu
           theme="dark"
           mode="horizontal"
@@ -154,11 +155,17 @@ const AppHeader = () => {
         >
           <Menu.Item key="signin">Sign In</Menu.Item>
           <Menu.Item key="cart" onClick={handleCartClick}>
-            <Badge count={totalItemsInCart} showZero>
+            {totalItemsInCart > 0 ? (
+              <Badge count={totalItemsInCart}>
+                <ShoppingCartOutlined
+                  style={{ fontSize: "24px", color: "white" }}
+                />
+              </Badge>
+            ) : (
               <ShoppingCartOutlined
                 style={{ fontSize: "24px", color: "white" }}
               />
-            </Badge>
+            )}
           </Menu.Item>
         </Menu>
       </div>

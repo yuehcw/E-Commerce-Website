@@ -11,41 +11,52 @@ import CategoryPage from "./pages/CategoryPage";
 import { SearchProvider } from "./context/SearchContext";
 import "./App.css";
 import CheckoutPage from "./pages/CheckoutPage";
+import { CategoryProvider } from "./context/CategoryContext";
+import SearchPageResultPage from "./pages/SearchPageResultPage";
 
 const App = () => {
   return (
     <CartProvider>
-      <SearchProvider>
-        <Router>
-          <div className="app">
-            <AppHeader />
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route
-                path="/product/:productId"
-                element={<ProductSinglePage />}
-              />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/category/:category" element={<CategoryPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-            </Routes>
-            <div className="app-footer">
+      <CategoryProvider>
+        <SearchProvider>
+          <Router>
+            <div className="app">
+              <AppHeader />
+              <div className="content">
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route
+                    path="/product/:productId"
+                    element={<ProductSinglePage />}
+                  />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route
+                    path="/category/:category"
+                    element={<CategoryPage />}
+                  />
+                  <Route path="/checkout" element={<CheckoutPage />} />
+                  <Route
+                    path="/search-result"
+                    element={<SearchPageResultPage />}
+                  />
+                </Routes>
+              </div>
               <AppFooter />
             </div>
-          </div>
-        </Router>
-      </SearchProvider>
+          </Router>
+        </SearchProvider>
+      </CategoryProvider>
     </CartProvider>
   );
 };

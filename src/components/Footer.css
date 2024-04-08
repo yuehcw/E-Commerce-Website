@@ -1,0 +1,28 @@
+.ant-typography-secondary {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* Optional: Overwrite the Ant Design styles if necessary */
+.ant-space-item > .ant-typography {
+    margin-right: 16px; /* Adjust the space between links */
+}
+
+.ant-layout-footer {
+    background: #f0f2f5; /* Change according to your theme */
+    border-top: 1px solid #f0f0f0; /* Add a border top if needed */
+}
+
+/* Icon hover effect */
+.anticon:hover {
+    color: #1890ff; /* Change hover color */
+    cursor: pointer;
+}
+
+/* You may want to add responsive styles too */
+@media (max-width: 768px) {
+    .ant-layout-footer {
+        padding: 20px; /* Adjust padding on smaller screens */
+    }
+}
+
+

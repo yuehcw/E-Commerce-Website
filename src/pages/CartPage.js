@@ -28,8 +28,12 @@ const CartPage = () => {
     updateItem(item, newQuantity - item.quantity);
   };
 
-  const handleCheckOutClick = (productId) => {
+  const handleCheckOutClick = () => {
     navigate(`/checkout`);
+  };
+
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
   };
 
   return (
@@ -52,6 +56,7 @@ const CartPage = () => {
                       className="product-image"
                       alt="product"
                       src={item.thumbnail}
+                      onClick={(value) => handleProductClick(item.id)}
                     />
                   </Col>
                   <Col className="product-info-col" flex="auto">
