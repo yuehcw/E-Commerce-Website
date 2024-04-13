@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/E-Commerce-Website/static/css/main.f9153f89.css",
+    "main.js": "/E-Commerce-Website/static/js/main.3167a332.js",
+    "static/js/312.5ed34f9f.chunk.js": "/E-Commerce-Website/static/js/312.5ed34f9f.chunk.js",
+    "static/js/369.4a261db6.chunk.js": "/E-Commerce-Website/static/js/369.4a261db6.chunk.js",
+    "static/media/Cyber.png": "/E-Commerce-Website/static/media/Cyber.6d71be4d70abf2176f2f.png",
+    "static/media/Samsung.jpg": "/E-Commerce-Website/static/media/Samsung.7abcbd70778c4e5a1efe.jpg",
+    "static/media/Apple-iPhone-15.jpg": "/E-Commerce-Website/static/media/Apple-iPhone-15.dfca44a75f2c2eeb8efd.jpg",
+    "index.html": "/E-Commerce-Website/index.html",
+    "main.f9153f89.css.map": "/E-Commerce-Website/static/css/main.f9153f89.css.map",
+    "main.3167a332.js.map": "/E-Commerce-Website/static/js/main.3167a332.js.map",
+    "312.5ed34f9f.chunk.js.map": "/E-Commerce-Website/static/js/312.5ed34f9f.chunk.js.map",
+    "369.4a261db6.chunk.js.map": "/E-Commerce-Website/static/js/369.4a261db6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9153f89.css",
+    "static/js/main.3167a332.js"
+  ]
+}
