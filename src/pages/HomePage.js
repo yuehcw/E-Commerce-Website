@@ -7,6 +7,7 @@ import Slider from "../components/Slider";
 import Loader from "../components/Loader";
 import "./HomePage.css";
 import { Typography } from "antd";
+import { TagOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 
@@ -50,7 +51,10 @@ const HomePage = () => {
         <Slider />
       </div>
       <div className="sale-container">
-        <div className="sale-title">Top deals</div>
+        <div className="sale-title">
+          <TagOutlined style={{ fontSize: "24px" }} />
+          <h1>Top deals</h1>
+        </div>
         {loading ? (
           <div className="loader-container">
             <Loader />
@@ -66,7 +70,10 @@ const HomePage = () => {
         )}
       </div>
       <div className="trending-container">
-        <div className="trending-title">Trending deals</div>
+        <div className="trending-title">
+          <TagOutlined style={{ fontSize: "24px" }} />
+          <h1>Trending deals</h1>
+        </div>
         {loading ? (
           <div className="loader-container">
             <Loader />

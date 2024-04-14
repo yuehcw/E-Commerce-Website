@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/E-Commerce-Website/static/css/main.0c7e71bd.css",
-    "main.js": "/E-Commerce-Website/static/js/main.194cd357.js",
-    "static/js/312.77bbcfcc.chunk.js": "/E-Commerce-Website/static/js/312.77bbcfcc.chunk.js",
-    "static/js/708.aa1fef65.chunk.js": "/E-Commerce-Website/static/js/708.aa1fef65.chunk.js",
+    "main.css": "/E-Commerce-Website/static/css/main.57ff10ca.css",
+    "main.js": "/E-Commerce-Website/static/js/main.03db25bd.js",
+    "static/js/312.ce1b7f71.chunk.js": "/E-Commerce-Website/static/js/312.ce1b7f71.chunk.js",
+    "static/js/959.d9a4d9ff.chunk.js": "/E-Commerce-Website/static/js/959.d9a4d9ff.chunk.js",
     "static/media/Cyber.png": "/E-Commerce-Website/static/media/Cyber.6d71be4d70abf2176f2f.png",
     "static/media/Samsung.jpg": "/E-Commerce-Website/static/media/Samsung.7abcbd70778c4e5a1efe.jpg",
     "static/media/Apple-iPhone-15.jpg": "/E-Commerce-Website/static/media/Apple-iPhone-15.dfca44a75f2c2eeb8efd.jpg",
     "static/media/cyber(Mobile).jpg": "/E-Commerce-Website/static/media/cyber(Mobile).b25a7817be2bad2ce5d3.jpg",
     "static/media/iPhone(Mobile).jpg": "/E-Commerce-Website/static/media/iPhone(Mobile).14f56ed7dd921c0fa222.jpg",
     "static/media/Samsung(Mobile).jpg": "/E-Commerce-Website/static/media/Samsung(Mobile).b306c5c4b858fd3cedfd.jpg",
+    "static/media/index.cjs": "/E-Commerce-Website/static/media/index.42119833dddefe38a9fa.cjs",
     "index.html": "/E-Commerce-Website/index.html",
-    "main.0c7e71bd.css.map": "/E-Commerce-Website/static/css/main.0c7e71bd.css.map",
-    "main.194cd357.js.map": "/E-Commerce-Website/static/js/main.194cd357.js.map",
-    "312.77bbcfcc.chunk.js.map": "/E-Commerce-Website/static/js/312.77bbcfcc.chunk.js.map",
-    "708.aa1fef65.chunk.js.map": "/E-Commerce-Website/static/js/708.aa1fef65.chunk.js.map"
+    "main.57ff10ca.css.map": "/E-Commerce-Website/static/css/main.57ff10ca.css.map",
+    "main.03db25bd.js.map": "/E-Commerce-Website/static/js/main.03db25bd.js.map",
+    "312.ce1b7f71.chunk.js.map": "/E-Commerce-Website/static/js/312.ce1b7f71.chunk.js.map",
+    "959.d9a4d9ff.chunk.js.map": "/E-Commerce-Website/static/js/959.d9a4d9ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c7e71bd.css",
-    "static/js/main.194cd357.js"
+    "static/css/main.57ff10ca.css",
+    "static/js/main.03db25bd.js"
   ]
 }

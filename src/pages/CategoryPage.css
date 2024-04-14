@@ -36,8 +36,8 @@
 
 @media (max-width: 768px) {
     .category-header {
-        max-width: 95%;
-        padding: 10px;
+        width: 90%;
+        justify-content: center;
     }
 }
 

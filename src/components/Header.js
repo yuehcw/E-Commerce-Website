@@ -210,7 +210,11 @@ const AppHeader = () => {
               Sign In
             </Menu.Item>
           )}
-          {isAuthenticated && <Menu.Item>Hi, {currentUser.username}</Menu.Item>}
+          {isAuthenticated && (
+            <Menu.Item className={"user-menu-item"}>
+              Hi, {currentUser.username}
+            </Menu.Item>
+          )}
           <Menu.Item key="cart" onClick={handleCartClick}>
             {totalItemsInCart > 0 ? (
               <Badge count={totalItemsInCart}>
