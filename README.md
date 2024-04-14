@@ -19,6 +19,8 @@ External Utilities:
 
 ## Getting Started
 
+**(Alternatively, you can access the deployed version of the website here "https://yuehcw.github.io/E-Commerce-Website/". This provides another choice if you prefer not to build the project locally.)**
+
 To get started with the project, follow these steps:
 
 1. **Clone the repository:**
@@ -43,8 +45,25 @@ yarn start
 ```
 
 ## Development Notes
-Update Cart Item: The `updateItem` function in the `CartContext.js` is designed to communicate with the backend API by calling `updateProductToCart` function from the `productService.js` to update the quantity of products in the cart. 
-For every successful API call, a message saying "API call successful. Update cart item" is printed to the console. This helps in debugging and ensuring that the API integration works as expected.
+### ProductService
+
+The productService.js file contains functions to interact with the backend API for fetching products, fetching a single product by ID, fetching products by category, and updating products in the cart. Here's a breakdown of the functions:
+
+* fetchProducts: Fetches all products from the API.
+* fetchProductById: Fetches a single product by its ID.
+* fetchProductsByCategory: Fetches products belonging to a specific category.
+* updateProductToCart: Updates the quantity of a product in the user's cart.
+
+### UserService
+
+The userService.js file contains functions to interact with the backend API for user-related operations. Currently, it includes a function to add a new user to the system. Here's the function:
+
+* addUser: Adds a new user to the system with provided details such as first name, last name, email, username, and password.
+
+The functions in both productService.js and userService.js are utilized within the project to perform specific tasks such as fetching product data, updating the cart, and adding new users.
+
+For every successful API call made using these functions, a message saying "API call successful" is printed to the console. This helps in debugging and ensuring that the API integration works as expected.
+
 
 ## Thank you for visiting my e-commerce website repository!
 
