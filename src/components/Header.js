@@ -1,5 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Badge, Layout, Menu, Drawer } from "antd";
+import {
+  Badge,
+  Layout,
+  Menu,
+  Drawer,
+  Form,
+  Button,
+  Input,
+  message,
+} from "antd";
 import {
   HomeOutlined,
   ShoppingCartOutlined,
@@ -8,6 +17,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useSearch } from "../context/SearchContext";
+import { useUser } from "../context/UserContext";
 import { fetchProducts } from "../services/productService";
 import { CategoryContext } from "../context/CategoryContext";
 import SearchBar from "./SearchBar";
@@ -18,10 +28,15 @@ const { Header } = Layout;
 const AppHeader = () => {
   const [products, setProducts] = useState([]);
   const [activeMenu, setActiveMenu] = useContext(CategoryContext);
+  const { users, loginUser, currentUser, isAuthenticated } = useUser();
   const [activeCategory, setActiveCategory] = useState(null);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [isSignInDrawerOpen, setIsSignInDrawerOpen] = useState(false);
+  const [form] = Form.useForm();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { resetSearchTerm } = useSearch();
-  const { items } = useCart();
+  const { items, setItemsEmpty } = useCart();
   const totalItemsInCart =
     Array.isArray(items) && items.length > 0
       ? items.reduce((total, item) => total + item.quantity, 0)
@@ -47,6 +62,13 @@ const AppHeader = () => {
     navigate("/");
   };
 
+  const handleSignUpClick = () => {
+    setIsSignInDrawerOpen(false);
+    setActiveCategory(null);
+    resetSearchTerm();
+    navigate("/sign-up");
+  };
+
   const handleCartClick = () => {
     setActiveCategory(null);
     resetSearchTerm();
@@ -68,6 +90,43 @@ const AppHeader = () => {
 
   const handleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);
+  };
+
+  const handleSignInClick = () => {
+    setIsSignInDrawerOpen(!isSignInDrawerOpen);
+  };
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleCategoryClick = (categoryName) => {
+    setActiveCategory(categoryName);
+    handleSideBar();
+    resetSearchTerm();
+    navigate(`/category/${categories[categoryName]}`);
+  };
+
+  const handleSignIn = ({ username, password }) => {
+    const foundUser = users.find(
+      (user) => user.username === username && user.password === password,
+    );
+    if (foundUser) {
+      message.success(
+        "Sign in successful. Welcome back, " + foundUser.username + "!",
+      );
+      loginUser(foundUser);
+      setItemsEmpty();
+      navigate("/");
+    } else {
+      message.error("User not found. Please check your username and password.");
+    }
+    setIsSignInDrawerOpen(false);
+    form.resetFields();
   };
 
   const displaycategories = [
@@ -116,13 +175,6 @@ const AppHeader = () => {
     Lighting: "lighting",
   };
 
-  const handleCategoryClick = (categoryName) => {
-    setActiveCategory(categoryName);
-    handleSideBar();
-    resetSearchTerm();
-    navigate(`/category/${categories[categoryName]}`);
-  };
-
   return (
     <Header className="header">
       <div className="menu-container">
@@ -153,7 +205,12 @@ const AppHeader = () => {
           selectedKeys={[activeMenu]}
           className="menu-right"
         >
-          <Menu.Item key="signin">Sign In</Menu.Item>
+          {!isAuthenticated && (
+            <Menu.Item key="signin" onClick={handleSignInClick}>
+              Sign In
+            </Menu.Item>
+          )}
+          {isAuthenticated && <Menu.Item>Hi, {currentUser.username}</Menu.Item>}
           <Menu.Item key="cart" onClick={handleCartClick}>
             {totalItemsInCart > 0 ? (
               <Badge count={totalItemsInCart}>
@@ -169,6 +226,47 @@ const AppHeader = () => {
           </Menu.Item>
         </Menu>
       </div>
+      <Drawer
+        title="Sign In"
+        placement="right"
+        closable={true}
+        onClose={() => setIsSignInDrawerOpen(false)}
+        visible={isSignInDrawerOpen}
+        width={300}
+      >
+        <Form form={form} name="signin" onFinish={handleSignIn}>
+          <Form.Item
+            name="username"
+            rules={[{ required: true, message: "Please input your username!" }]}
+          >
+            <Input
+              placeholder="Username"
+              value={username}
+              onChange={handleUsernameChange}
+            />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Sign In
+            </Button>
+          </Form.Item>
+          <Form.Item>
+            <span className="drawer-sign-up" onClick={handleSignUpClick}>
+              New user? Register now.
+            </span>
+          </Form.Item>
+        </Form>
+      </Drawer>
       <Drawer
         title="ALL CATEGORIES"
         placement="left"

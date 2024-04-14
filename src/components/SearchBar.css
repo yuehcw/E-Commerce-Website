@@ -8,3 +8,11 @@
 .search-bar-container {
     display: flex;
 }
+
+@media (max-width: 768px) {
+    .custom-search-bar {
+        margin-right: 8px;
+        width: 120px;
+    }
+
+}

@@ -6,7 +6,7 @@ import ProductCarousel from "../components/ProductCarousel";
 import Slider from "../components/Slider";
 import Loader from "../components/Loader";
 import "./HomePage.css";
-import { Row, Col, Typography } from "antd";
+import { Typography } from "antd";
 
 const { Title } = Typography;
 
@@ -50,13 +50,7 @@ const HomePage = () => {
         <Slider />
       </div>
       <div className="sale-container">
-        <Row className="sale-row" justify="start">
-          <Col>
-            <Title level={2} className="sale-title">
-              Top deals
-            </Title>
-          </Col>
-        </Row>
+        <div className="sale-title">Top deals</div>
         {loading ? (
           <div className="loader-container">
             <Loader />
@@ -72,13 +66,7 @@ const HomePage = () => {
         )}
       </div>
       <div className="trending-container">
-        <Row className="trending-row" justify="start">
-          <Col>
-            <Title level={2} className="trending-title">
-              Trending deals
-            </Title>
-          </Col>
-        </Row>
+        <div className="trending-title">Trending deals</div>
         {loading ? (
           <div className="loader-container">
             <Loader />

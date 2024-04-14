@@ -1,6 +1,4 @@
-// CartPage.js
 import React from "react";
-import { Row, Col, List, InputNumber, Button, Card } from "antd";
 import { useCart } from "../context/CartContext";
 import { Modal } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -38,67 +36,53 @@ const CartPage = () => {
 
   return (
     <div className="cart-page-container">
-      <Row gutter={[20, 20]} justify="center" className="cart-row">
-        <Col xs={24} sm={24} md={18} lg={16} xl={12}>
-          <List
-            itemLayout="horizontal"
-            dataSource={items}
-            renderItem={(item) => (
-              <Card className="product-card-container">
-                <Row
-                  gutter={16}
-                  wrap={false}
-                  align="middle"
-                  className="product-row"
+      <div className="product-list">
+        {items.map((item) => (
+          <div className="product-card-container" key={item.id}>
+            <div className="product-image-col">
+              <img
+                className="product-image"
+                alt="product"
+                src={item.thumbnail}
+                onClick={() => handleProductClick(item.id)}
+              />
+            </div>
+            <div className="product-info-col">
+              <h3>{item.title}</h3>
+              <p>Quantity: {item.quantity}</p>
+              <p>Price: ${item.price}</p>
+              <div className="quantity-and-remove">
+                <input
+                  type="number"
+                  min={1}
+                  value={item.quantity}
+                  className="cart-input"
+                  onChange={(e) =>
+                    handleQuantityChange(item, parseInt(e.target.value))
+                  }
+                />
+                <button
+                  type="button"
+                  onClick={() => handleDeleteItem(item)}
+                  className="remove-button"
                 >
-                  <Col className="product-image-col" flex="none">
-                    <img
-                      className="product-image"
-                      alt="product"
-                      src={item.thumbnail}
-                      onClick={(value) => handleProductClick(item.id)}
-                    />
-                  </Col>
-                  <Col className="product-info-col" flex="auto">
-                    <h3>{item.title}</h3>
-                    <p>Quantity: {item.quantity}</p>
-                    <p>Price: ${item.price}</p>
-                    <div className="quantity-and-remove">
-                      <InputNumber
-                        min={1}
-                        value={item.quantity}
-                        onChange={(value) => handleQuantityChange(item, value)}
-                        onKeyDown={(e) => e.preventDefault()}
-                      />
-                      <Button
-                        type="primary"
-                        danger
-                        onClick={() => handleDeleteItem(item)}
-                      >
-                        Remove
-                      </Button>
-                    </div>
-                  </Col>
-                </Row>
-              </Card>
-            )}
-          />
-        </Col>
-
-        <Col xs={24} sm={24} md={18} lg={8} xl={6}>
-          <Card className="summary-card">
-            <SummaryComponent />
-            <Button
-              type="primary"
-              block
-              onClick={handleCheckOutClick}
-              className="checkout-button"
-            >
-              Checkout
-            </Button>
-          </Card>
-        </Col>
-      </Row>
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="summary-section">
+        <SummaryComponent />
+        <button
+          type="button"
+          onClick={handleCheckOutClick}
+          className="checkout-button"
+        >
+          Checkout
+        </button>
+      </div>
     </div>
   );
 };

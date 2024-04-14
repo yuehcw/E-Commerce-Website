@@ -199,7 +199,7 @@ const ProductSinglePage = () => {
 
       <div className="related-products">
         <div className="header-title">
-          <h2>You May Also Like</h2>
+          <h2 className="alsoLike">You May Also Like</h2>
         </div>
         <ProductList
           products={relatedProducts}

@@ -95,13 +95,32 @@
 }
 
 
-/* Responsive design adjustments */
 @media (max-width: 768px) {
-    .card {
-        flex: 0 0 100%;
+    .carousel-mobile-view .carousel-item {
+        width: 100%;
     }
 
-    .card-img-top {
-        height: 150px;
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: block;
+    }
+
+    .carousel-control-next {
+        margin-top: 50%;
+        margin-right: 1.9rem;
+    }
+
+    .carousel-control-prev {
+        margin-top: 50%;
+    }
+
+    .product-price-carousel {
+        font-size: 22px;
+    }
+
+    .card-title {
+        font-size: 20px;
     }
 }
+
+

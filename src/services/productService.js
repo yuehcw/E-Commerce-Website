@@ -23,7 +23,7 @@ export const fetchProductById = async (id) => {
 export const fetchProductsByCategory = async (category) => {
   try {
     const response = await axios.get(
-      `https://dummyjson.com/products/category/${category}`,
+      `${API_BASE_URL}/products/category/${category}`,
     );
     return response.data.products;
   } catch (error) {

@@ -3,6 +3,7 @@ import * as ProductService from "../services/productService";
 
 // Actions
 const UPDATE_ITEM_QUANTITY = "UPDATE_ITEM_QUANTITY";
+const SET_ITEMS_EMPTY = "SET_ITEMS_EMPTY";
 
 // Initial cart state
 const initialState = {
@@ -14,6 +15,8 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case UPDATE_ITEM_QUANTITY:
       return { ...state, items: action.payload };
+    case SET_ITEMS_EMPTY:
+      return { ...state, items: [] };
     default:
       return state;
   }
@@ -73,11 +76,16 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const setItemsEmpty = () => {
+    dispatch({ type: SET_ITEMS_EMPTY });
+  };
+
   return (
     <CartContext.Provider
       value={{
         ...state,
         updateItem,
+        setItemsEmpty,
       }}
     >
       {children}

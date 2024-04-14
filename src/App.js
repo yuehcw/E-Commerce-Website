@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import HomePage from "./pages/HomePage";
 import ProductSinglePage from "./pages/ProductSinglePage";
@@ -13,48 +13,57 @@ import "./App.css";
 import CheckoutPage from "./pages/CheckoutPage";
 import { CategoryProvider } from "./context/CategoryContext";
 import SearchPageResultPage from "./pages/SearchPageResultPage";
+import SignUpPage from "./pages/SignUpPage";
+import { UserProvider } from "./context/UserContext";
 
 const App = () => {
   return (
     <CartProvider>
       <CategoryProvider>
         <SearchProvider>
-          <Router>
-            <div className="app">
-              <AppHeader />
-              <div className="content">
-                <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route
-                    path="/product/:productId"
-                    element={<ProductSinglePage />}
+          <UserProvider>
+            <Router>
+              <div className="app">
+                <div className="app-header">
+                  <AppHeader />
+                </div>
+                <div className="content">
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
                   />
-                  <Route path="/cart" element={<CartPage />} />
-                  <Route
-                    path="/category/:category"
-                    element={<CategoryPage />}
-                  />
-                  <Route path="/checkout" element={<CheckoutPage />} />
-                  <Route
-                    path="/search-result"
-                    element={<SearchPageResultPage />}
-                  />
-                </Routes>
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route
+                      path="/product/:productId"
+                      element={<ProductSinglePage />}
+                    />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route
+                      path="/category/:category"
+                      element={<CategoryPage />}
+                    />
+                    <Route path="/checkout" element={<CheckoutPage />} />
+                    <Route
+                      path="/search-result"
+                      element={<SearchPageResultPage />}
+                    />
+                    <Route path="/sign-up" element={<SignUpPage />} />
+                  </Routes>
+                </div>
+                <div className="app-footer">
+                  <AppFooter />
+                </div>
               </div>
-              <AppFooter />
-            </div>
-          </Router>
+            </Router>
+          </UserProvider>
         </SearchProvider>
       </CategoryProvider>
     </CartProvider>

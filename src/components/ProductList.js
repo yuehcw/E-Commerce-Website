@@ -15,7 +15,7 @@ const Product = ({ product, onProductClick }) => {
         <img
           alt={product.title}
           src={product.images[0]}
-          className="product-image"
+          className="productList-image"
         />
       }
     >

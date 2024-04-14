@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductCarousel.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const ProductCarousel = ({ id, products, onProductClick }) => {
-  const productsPerSlide = 4;
+  const [productsPerSlide, setProductsPerSlide] = useState(
+    getProductsPerSlide(),
+  );
+
   const groupedProducts = [];
+
+  for (let i = 0; i < products.length; i += productsPerSlide) {
+    groupedProducts.push(products.slice(i, i + productsPerSlide));
+  }
+
+  function getProductsPerSlide() {
+    return window.innerWidth < 768 ? 1 : 4;
+  }
+
+  useEffect(() => {
+    function handleResize() {
+      setProductsPerSlide(getProductsPerSlide());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   for (let i = 0; i < products.length; i += productsPerSlide) {
     groupedProducts.push(products.slice(i, i + productsPerSlide));
@@ -17,7 +37,11 @@ const ProductCarousel = ({ id, products, onProductClick }) => {
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-lg-10">
-          <div id={id} className="carousel slide" data-bs-ride="carousel">
+          <div
+            id={id}
+            className="carousel slide carousel-mobile-view"
+            data-bs-ride="carousel"
+          >
             <div className="carousel-inner">
               {groupedProducts.map((productGroup, groupIndex) => (
                 <div

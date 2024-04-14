@@ -65,3 +65,42 @@
     align-items: center;
     text-align: center;
 }
+
+.drawer-sign-up:hover {
+    color: #0099ff;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: auto;
+    }
+
+    .menu-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menu-right {
+        padding: 0;
+    }
+
+    .menu-left {
+        padding: 0;
+    }
+
+    .menu-middle {
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+
+    .menu-right .ant-menu-item {
+        padding: 7px;
+    }
+
+    .menu-left .ant-menu-item {
+        padding: 7px;
+    }
+
+}

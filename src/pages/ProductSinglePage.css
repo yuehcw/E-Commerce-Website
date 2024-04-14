@@ -131,7 +131,9 @@
     width: 100%;
 }
 
-h2 {
+.alsoLike {
+    font-weight: bold;
+    text-align: center;
     margin-bottom: 3%;
 }
 
@@ -182,22 +184,103 @@ h2 {
 
 
 @media (max-width: 768px) {
-    .product-main-content, .related-products {
-        flex-direction: column;
+    .product-page {
+        padding: 10px;
     }
 
-    .product-image img {
-        max-width: 200px;
-    }
-
+    .product-details,
+    .product-info-container,
     .product-info {
+        flex-direction: column;
+        align-items: center;
         max-width: 100%;
-        padding: 20px;
+        margin: 0 auto;
+        padding: 10px;
+        box-sizing: border-box;
     }
+
+    .product-details {
+        padding-top: 0;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .thumbnail-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .thumbnail {
+        width: 60px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .image-container img
+     {
+        width: 100%;
+        height: auto;
+    }
+
+    .thumbnail-container {
+        overflow-x: auto;
+    }
+
+    .product-description,
+    .product-price,
+    .original-price-single,
+    .sale-price-single,
+    .discount-single {
+        text-align: center;
+        width: 100%;
+    }
+
+    .button-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .quantity-selector .form-control,
+    .quantity-selector .btn {
+        width: auto;
+    }
+
+    .btn {
+        width: 48%;
+        margin-top: 10px;
+    }
+
+    .header-title h2 {
+        padding-top: 10rem;
+        font-size: 1.8rem;
+    }
+
+    .quantity-selector .input-group-prepend .btn,
+    .quantity-selector .input-group-append .btn,
+    .quantity-selector .form-control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    .quantity-selector .form-control {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .quantity-selector .input-group-prepend .btn,
+    .quantity-selector .input-group-append .btn {
+        padding: 0 20px;
+        margin: 0;
+    }
+
+    .quantity-button {
+        margin-top: 60px;
+    }
+
 }
 
-@media (max-width: 480px) {
-    .product-image img {
-        max-width: 100px;
-    }
-}
