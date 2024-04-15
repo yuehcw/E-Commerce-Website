@@ -3,6 +3,8 @@
 Welcome to the repository for my e-commerce website. This platform is designed to offer a seamless online shopping experience, featuring a diverse range of products including electronics, 
 fashion, home goods, and more. Here's everything you need to know about the project, including the design choices, libraries used, and how to get it up and running on your local machine.
 
+## You can access the deployed website [here](https://yuehcw.github.io/E-Commerce-Website/). 
+
 ## Design and Libraries Used
 
 The e-commerce website is built on React.js, leveraging its component-based architecture to ensure a responsive and interactive user experience. Here are the main libraries and frameworks used in this project:
@@ -18,8 +20,6 @@ External Utilities:
 - **Axios**: A promise-based HTTP client used for making requests to fetch or post data. It simplifies the process of interacting with APIs.
 
 ## Getting Started
-
-**(Alternatively, you can access the deployed version of the website here "https://yuehcw.github.io/E-Commerce-Website/". This provides another choice if you prefer not to build the project locally.)**
 
 To get started with the project, follow these steps:
 
