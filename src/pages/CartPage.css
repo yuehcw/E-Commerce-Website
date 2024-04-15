@@ -165,8 +165,7 @@
     }
 
     .empty-cart-container {
-        margin: 65px;
-        padding: 10px;
+        margin: 0;
     }
 
     .empty-cart-message {
