@@ -31,7 +31,5 @@ h3 {
 
 @media (max-width: 768px) {
   .content {
-    padding: 0;
-    margin: 0;
   }
 }
