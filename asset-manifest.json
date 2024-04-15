@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/E-Commerce-Website/static/css/main.fe9e8388.css",
+    "main.css": "/E-Commerce-Website/static/css/main.3e4f20aa.css",
     "main.js": "/E-Commerce-Website/static/js/main.269098b8.js",
     "static/js/312.a8988f77.chunk.js": "/E-Commerce-Website/static/js/312.a8988f77.chunk.js",
     "static/js/210.2eb5d955.chunk.js": "/E-Commerce-Website/static/js/210.2eb5d955.chunk.js",
@@ -12,13 +12,13 @@
     "static/media/Samsung(Mobile).jpg": "/E-Commerce-Website/static/media/Samsung(Mobile).b306c5c4b858fd3cedfd.jpg",
     "static/media/index.cjs": "/E-Commerce-Website/static/media/index.42119833dddefe38a9fa.cjs",
     "index.html": "/E-Commerce-Website/index.html",
-    "main.fe9e8388.css.map": "/E-Commerce-Website/static/css/main.fe9e8388.css.map",
+    "main.3e4f20aa.css.map": "/E-Commerce-Website/static/css/main.3e4f20aa.css.map",
     "main.269098b8.js.map": "/E-Commerce-Website/static/js/main.269098b8.js.map",
     "312.a8988f77.chunk.js.map": "/E-Commerce-Website/static/js/312.a8988f77.chunk.js.map",
     "210.2eb5d955.chunk.js.map": "/E-Commerce-Website/static/js/210.2eb5d955.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe9e8388.css",
+    "static/css/main.3e4f20aa.css",
     "static/js/main.269098b8.js"
   ]
 }
